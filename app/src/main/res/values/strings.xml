@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">PasswordGeneratorFinal</string>
+    <string name="buttonGenerate"> Generate</string>
+    <string name="buttonSave"> Save</string>
+    <string name="textViewPassword"> password </string>
+    <string name="textViewLength">Length</string>
+    <string name="checkLetters"> Upper Case Letters</string>
+    <string name="checkNumbers"> Numbers</string>
+    <string name="checkSymbols"> Symbols</string>
+
+
+</resources>
