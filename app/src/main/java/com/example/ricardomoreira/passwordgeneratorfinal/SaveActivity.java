@@ -83,6 +83,38 @@ public class SaveActivity extends Activity {
         });
 
 
+        buttonSendEmail.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                String email = editTextUsername.getText().toString();
+                String url = editTextURL.getText().toString();
+                String password = textViewMyPassword.getText().toString();
+                String[] TO = {email};
+                String[] CC = {email};
+                Intent emailIntent = new Intent(Intent.ACTION_SEND);
+                emailIntent.setData(Uri.parse("mailto:"));
+                emailIntent.setType("text/plain");
+
+
+                emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
+                emailIntent.putExtra(Intent.EXTRA_CC, CC);
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Your Password ");
+                emailIntent.putExtra(Intent.EXTRA_TEXT, "URL : " + url + "/n" + "Password : " + password);
+
+                try {
+                    startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+                    finish();
+
+
+                } catch (android.content.ActivityNotFoundException ex) {
+                    Toast.makeText(SaveActivity.this,
+                            "There is no email client installed.", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+
+
 
     }
 }
