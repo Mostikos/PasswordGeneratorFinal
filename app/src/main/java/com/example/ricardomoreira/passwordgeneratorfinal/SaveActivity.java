@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Debug;
+import android.support.design.widget.FloatingActionButton;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,7 +20,8 @@ public class SaveActivity extends Activity {
 
     EditText editTextURL , editTextUsername ;
     TextView textViewMyPassword;
-    Button buttonSave ,buttonSendEmail;
+    Button buttonSave ;
+    FloatingActionButton buttonSendEmail;
     protected DatabaseAdapter a;
     List<String> asURL;
     int indice;
@@ -56,6 +58,7 @@ public class SaveActivity extends Activity {
         textViewMyPassword = (TextView) findViewById(R.id.textViewMyPassword);
         textViewMyPassword.setText(password);
         buttonSave = (Button)findViewById(R.id.buttonSave);
+        buttonSendEmail = (FloatingActionButton)findViewById(R.id.buttonSendEmail);
 
 
 
@@ -99,7 +102,7 @@ public class SaveActivity extends Activity {
                 emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
                 emailIntent.putExtra(Intent.EXTRA_CC, CC);
                 emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Your Password ");
-                emailIntent.putExtra(Intent.EXTRA_TEXT, "URL : " + url + "/n" + "Password : " + password);
+                emailIntent.putExtra(Intent.EXTRA_TEXT, "URL : " + url + "\n" + "Password : " + password);
 
                 try {
                     startActivity(Intent.createChooser(emailIntent, "Send mail..."));
