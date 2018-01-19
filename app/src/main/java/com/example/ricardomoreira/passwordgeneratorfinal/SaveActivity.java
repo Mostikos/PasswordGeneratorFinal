@@ -85,8 +85,28 @@ public class SaveActivity extends Activity {
             }
         });
 
+        buttonSendEmail.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               String email = editTextUsername.getText().toString();
+               String url = editTextURL.getText().toString();
+               String password = textViewMyPassword.getText().toString();
+               Intent myIntent =new Intent(SaveActivity.this,SendEmail.class);
+               myIntent.putExtra("email" ,email);
+               myIntent.putExtra("url" ,url);
+               myIntent.putExtra("password" ,password);
 
-        buttonSendEmail.setOnClickListener(new View.OnClickListener(){
+
+               SaveActivity.this.startActivity(myIntent);
+
+
+           }
+       });
+
+
+
+
+        /*buttonSendEmail.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 String email = editTextUsername.getText().toString();
@@ -115,7 +135,7 @@ public class SaveActivity extends Activity {
                 }
 
             }
-        });
+        });*/
 
 
 
