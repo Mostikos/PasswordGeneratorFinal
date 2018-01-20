@@ -84,7 +84,7 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Ex : abc@gmail.com"
-        android:inputType="textPersonName"
+        android:inputType="textEmailAddress"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
